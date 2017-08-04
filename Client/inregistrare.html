@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Inregistrare</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="">
+					<nav id="nav">
+						<ul>
+						<li><a href="indexEn.html">English<img style="vertical-align:middle" src="images/eng.png" height="40em" width='40em'></a><li>
+							<li><a href="index.html">Pagina principala</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Meniu</a>
+								<ul>
+									<li><a href="documente.html">Documente</a></li>
+									<li><a href="partspon.html">Parteneri și sponsori</a></li>
+									<li><a href="inregistrare.html">Înregistrare</a></li>
+									<li><a href="CazareRo.html">Cazare</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+
+			<!-- Main -->
+				<section id="main" class="container 75%">
+					<header>
+						<h2>Formular de inscriere</h2>
+						<hr>
+					</header>
+					<div class="box">
+						<form>
+							<div class="row uniform 50%">
+								<div class="12u 12u(mobilep)">
+									<input type="text" id="nume" value="" placeholder="Nume si prenume" required/>
+								</div>
+								<div class="12u 12u(mobilep)">
+									<input type="email" id="email" value="" placeholder="Email" required/>
+								</div>
+
+								<div class="12u 12u(mobilep)">
+									<input type="text" id="titlu_academic" value=""
+										   placeholder="Titlul academic / ştiinţific" required/>
+								</div>
+
+								<div class="12u 12u(mobilep)">
+									<input type="text" id="institutie" value=""
+										   placeholder="Instituţia (şi ţara de provenienţă)" required/>
+								</div>
+
+								<div class="12u">
+									<div class="select-wrapper">
+										<select id="category" title="" required>
+											<option value="">Secţiunea (alegeţi secţiunea la care vă înscrieţi)</option>
+											<option value="1">DINAMICA MANIFESTĂRILOR FOLCLORICE. TRADIȚIE ȘI INOVAŢIE</option>
+											<option value="2">UNITATE ŞI DIVERSITATE ÎN CONTEXT EUROPEAN. DIALOGUL CULTURILOR ÎN SINCRONIE ȘI DIACRONIE</option>
+											<option value="3">PERSPECTIVA INTERDISCIPLINARĂ, PLURIDISCIPLINARĂ ŞI TRANSDISCIPLINARĂ ÎN ÎNVĂȚĂMÂNTUL UNIVERSITAR ȘI PREUNIVERSITAR</option>
+											<option value="4">TRADIȚII, IDENTITATE NAȚIONALĂ, DIALOG INTERCULTURAL, DIVERSITATE</option>
+											<option value="5">RELAŢIA DINTRE CADRUL DIDACTIC, STUDENŢI ŞI MASTERANZI. SECȚIUNE SPECIALĂ PENTRU STUDENȚI ȘI MASTERANZI</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="12u 12u(mobilep)">
+									<input type="text" id="titlu_lucrare" value="" placeholder="Titlul lucrării" required/>
+								</div>
+
+								<div class="12u 12u(mobilep)">
+									<input type="text" id="cuv_cheie" value="" placeholder="Cuvinte-cheie" required/>
+								</div>
+
+								<div class="12u">
+									<input type="text"  id="rezumat" value="" placeholder="Rezumat(in engleza)" required>
+								</div>
+								<div class="12u">
+									<h2>Lucrarea intreaga(scrisa in engleza sau romana) se trimite de pe adresa personala de email.</h2>
+								</div>
+							</div>
+
+
+							<div class="row uniform">
+								<div class="12u">
+									<ul class="actions align-center">
+										<li><input type="submit" value="Trimite" onclick="sendform()" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+<script>
+	var sendform = function() {
+        var data;
+        data = {
+            "nume": document.getElementById("nume").value,
+            "email": document.getElementById("email").value,
+            "titlu_academic": document.getElementById("titlu_academic").value,
+            "institutie": document.getElementById("institutie").value,
+            "sectiune": document.getElementById("category").options[document.getElementById("category").selectedIndex].text,
+            "titlu_lucrare": document.getElementById("titlu_lucrare").value,
+            "cuv_cheie": document.getElementById("titlu_lucrare").value,
+            "rezumat": document.getElementById("rezumat").value
+        };
+        var ok = true;
+        for (var s in data) {
+            if (data[s] === "") {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            alert("Date primite. O sa primesti confirmarea pe email cat mai curand.");
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "/sendEmail", true);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify(data));
+            console.log(JSON.stringify(data));
+        }
+        else alert("Toate campurile trebuie completate")
+    }
+</script>
+			<!-- Footer -->
+			<footer id="footer">
+				<h2>Ne gasiti si pe</h2>
+				<ul class="icons">
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				</ul>
+			</footer>
+
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

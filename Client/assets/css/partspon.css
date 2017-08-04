@@ -1,0 +1,27 @@
+
+	.images {
+	position:relative; 
+	width:20%;
+	max-width:200px; 
+	margin 0 auto; 
+	padding: 20px; 
+	text-align:center;
+	}
+
+	.image {
+	position:relative;
+	display:inline-block; 
+	width:auto;
+	max-width:200px; 
+	padding: 0px 10px 0px 0px;
+	}
+.right-div {
+	display: inline-block;
+    position: relative;
+    right: 0;
+    float: right;
+	margin-right:10%;
+	width:auto;
+	max-width:20%;
+	min-width:10%;
+}
