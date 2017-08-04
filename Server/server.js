@@ -43,9 +43,5 @@ router.post("/sendEmail",bodyParser, function *(next){
 
 });
 app.use(router.routes()); //use routes
-app.use(function *(){
-    //redirect 404
-    this.redirect('/index.html');
-});
 console.log("Running on 8080");
 app.listen(process.env.PORT || 8080 );
