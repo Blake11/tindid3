@@ -1,0 +1,6 @@
+{
+  "name": "Tindid3",
+  "description": "simple web app",
+  "repository": "https://github.com/Blake11/tindid",
+  "keywords": ["node", "koa", "heroku"],
+}

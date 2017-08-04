@@ -1,0 +1,32 @@
+{
+  "name": "node-js",
+  "version": "0.0.1",
+  "description": "A sample Node.js app using koa",
+  "engines": {
+    "node": "6.11.1",
+	"npm": "3.10.10"
+  },
+  "main": "Server",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "2.5.6",
+    "express": "4.15.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+	"nodemailer": "^4.0.1",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Blake11/tindid"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
