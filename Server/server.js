@@ -42,11 +42,7 @@ router.post("/sendEmail",bodyParser, function *(next){
     yield(next);
 
 });
-router.get('*', function* () {
-    let stats = yield* sendfile.call(this, "/Client/index.html");
-
-     if (!this.status) this.throw(404)
-})
+router.get('/', serve('./Client/index.html'));
 app.use(router.routes()); //use routes
 console.log("Running on 8080");
 app.listen(process.env.PORT || 8080 );
