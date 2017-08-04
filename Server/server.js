@@ -43,7 +43,7 @@ router.post("/sendEmail",bodyParser, function *(next){
 
 });
 router.get('*', function* () {
-    let stats = yield* sendfile.call(this, /Client/index.html);
+    let stats = yield* sendfile.call(this, "/Client/index.html");
 
      if (!this.status) this.throw(404)
 })
