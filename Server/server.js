@@ -42,7 +42,6 @@ router.post("/sendEmail",bodyParser, function *(next){
     yield(next);
 
 });
-router.get('/', serve('../Client/index.html'));
 app.use(router.routes()); //use routes
 console.log("Running on 8080");
 app.listen(process.env.PORT || 8080 );
