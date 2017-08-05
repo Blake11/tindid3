@@ -4,8 +4,10 @@ var router = require('koa-router')();
 var bodyParser = require('koa-body')();
 var serve = require('koa-static');
 var nodemailer = require('nodemailer');
+const path = require('path');
+var port = process.env.PORT || 8080
 
-app.use(serve('../Client')); //serve public files
+app.use(serve(path.join(__dirname, '../Client'))); //serve public files
 router.post("/sendEmail",bodyParser, function *(next){
     //get form data from client
     var data = this.request.body;
@@ -43,5 +45,5 @@ router.post("/sendEmail",bodyParser, function *(next){
 
 });
 app.use(router.routes()); //use routes
-console.log("Running on 8080");
-app.listen(process.env.PORT || 8080 );
+console.log("Running on " + port );
+app.listen(port);
