@@ -17,9 +17,9 @@
 					<nav id="nav">
 						<ul>
 						<li><a href="index.html">Romanian<img style="vertical-align:middle" src="images/ro.png" height="40em" width='40em'></a><li>
-							<li><a href="index.html">Pagina principala</a></li>
+							<li><a href="indexEn.html">Home Page</a></li>
 							<li>
-								<a href="#" class="icon fa-angle-down">Meniu</a>
+								<a href="#" class="icon fa-angle-down">Menu</a>
 								<ul>
 									<li><a href="documente.html">Documente</a></li>
 									<li><a href="partspon.html">Parteneri și sponsori</a></li>
@@ -61,7 +61,7 @@
 							<div class="12u">
 								<div class="select-wrapper">
 									<select id="category" title="" required>
-										<option value="">Secţiunea (alegeţi secţiunea la care vă înscrieţi)</option>
+										<option value="">Section(choose section you would like to register)</option>
 										<option value="1">DYNAMICS OF FOLKLORE EVENTS. TRADITION AND INNOVATION</option>
 										<option value="2">UNITY AND DIVERSITY IN THE EUROPEAN CONTEXT. SYNCHRONY AND DIACHRONY IN THE DIALOGUE OF CULTURES</option>
 										<option value="3">INTERDISCIPLINARY, MULTIDISCIPLINARY, TRANSDISCIPLINARY PERSPECTIVE IN THE UNIVERSITY AND THE SECONDARY SCHOOL EDUCATION</option>
@@ -83,7 +83,7 @@
 								<input type="text"  id="rezumat" value="" placeholder="Resume(english)" required>
 							</div>
 							<div class="12u">
-								<h2>The whole essay (wrote in english or romanian) must be sent from your personal email.</h2>
+								<h2>The whole essay (wrote in english or romanian) must be sent from your personal email address to contact address: tindid3bm2017@yahoo.com.</h2>
 							</div>
 						</div>
 
@@ -119,7 +119,7 @@
                         }
                     }
                     if (ok) {
-                        alert("Data recived, You will get confirmation on your email as soon as posible");
+                        alert("Registration confirmed!");
                         var xhttp = new XMLHttpRequest();
                         xhttp.open("POST", "/sendEmail", true);
                         xhttp.setRequestHeader("Content-Type", "application/json");
@@ -132,10 +132,6 @@
 
 			<!-- Footer -->
             <footer id="footer">
-                <h2>You can also find us on</h2>
-                <ul class="icons">
-                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                </ul>
             </footer>
 
 		</div>

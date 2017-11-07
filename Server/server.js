@@ -19,8 +19,7 @@ router.post("/sendEmail",bodyParser, function *(next){
             pass: 'tindid3password'
         }
     });
-    var mesaj =
-        '<p>Nume si prenume: ' + data.nume +
+    var mesaj ='<p>Nume si prenume: ' + data.nume +
         '</p><p>Email: ' + data.email +
         '</p><p>Titlul academic / ştiinţific: ' + data.titlu_academic +
         '</p><p>Instituţia (şi ţara de provenienţă): ' + data.institutie+
@@ -32,7 +31,7 @@ router.post("/sendEmail",bodyParser, function *(next){
 // setup email data with unicode symbols
     var mailOptions = {
         from: 'TINDID3 <tindid3@gmail.com>', // sender address
-        to: 'ciureapaul@gmail.com', // list of receivers
+        to: 'tindid3bm2017@yahoo.com', // list of receivers
         subject: "Lucrare: " + data.titlu_lucrare, // Subject line
         html: mesaj
     };
@@ -42,8 +41,12 @@ router.post("/sendEmail",bodyParser, function *(next){
         else console.log("Email trimis. Nume lucrare:" + data.titlu_lucrare )
     });
     yield(next);
-
 });
+
 app.use(router.routes()); //use routes
+app.use(function *(){
+    //redirect 404
+    this.redirect('/index.html');
+    });
 console.log("Running on " + port );
 app.listen(port);
